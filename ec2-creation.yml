@@ -12,6 +12,8 @@
          region: "us-east-1"
          instance_type: t2.micro
          image: "ami-c58c1dd3"
+         group: "full-traffic"
+         count: 1
          instance_tags:
             testing: ansible-test
       register: ec2
