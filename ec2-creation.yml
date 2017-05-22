@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+  - vars.yml
+  tasks:
+    - name: provision
+      ec2:
+         aws_access_key: "{{ec2_access_key}}"
+         aws_secret_key: "{{ec2_secret_key}}"
+         region: "us-east-1"
+         instance_type: t2.micro
+         image: "ami-c58c1dd3"
+         instance_tags:
+            testing: ansible-test
+      register: ec2
